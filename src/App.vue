@@ -6,6 +6,7 @@ import AppHeader from './components/layout/AppHeader.vue';
 
 <template>
     <AppHeader />
+    <RouterView/>
 </template>
 
 <style scoped>
