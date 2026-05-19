@@ -4,9 +4,11 @@ import { RouterLink } from 'vue-router'
 
 <template>
     <header>
-        <nav>
-            
-        </nav>
+        <div>
+      <h1>IFbooks</h1>
+      <span>|</span>
+      <span>Apreço à<br>leitura</span>
+    </div>
     </header>
 </template>
 
