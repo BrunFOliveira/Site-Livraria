@@ -1,12 +1,11 @@
 <script setup>
-import { RouterLink } from 'vue-router'
 </script>
 
 <template>
     <header>
         <div>
       <h1>IFbooks</h1>
-      <span>|</span>
+      <RouterLink to="/">|</RouterLink>
       <span>Apreço à<br>leitura</span>
     </div>
     </header>
