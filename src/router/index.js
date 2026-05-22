@@ -1,8 +1,15 @@
-import CartView from "@/components/views/CartView.vue";
-import HomeView from "@/components/views/HomeView.vue";
+import CartView from "@/views/CartView.vue";
+import HomeView from "@/views/HomeView.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   { path: '/', component: HomeView },
-  { path: '/cart', component: CartView}
-]
+  { path: '/cart', component: CartView },
+];
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+export default router;
