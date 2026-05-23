@@ -25,10 +25,37 @@
     </div>
    </section>
 
+   <section class="informacoes">
+
+    <div class="conteudoInformacoes">
+      <div class="divC">
+      <img src="/public/IconCaminhão.png" alt="">
+    <p>Frete grátis para SC</p>
+    </div>
+
+    <p class="paragrafo1">|</p>
+
+    <div class="divE">
+      <img src="/public/IconEstrela.png" alt="">
+    <p>Livros recomendados</p>
+    </div>
+
+    <p class="paragrafo2">|</p>
+
+    <div class="divL">
+      <img src="/public/IconLivro.png" alt="">
+    <p>Mais vendidos</p>
+    </div>
+    </div>
+
+   </section>
+
   </main>
 </template>
 
 <style scoped>
+
+/* === Banner === */
 
 section.banner {
   display: flex;
@@ -73,5 +100,50 @@ section.banner button {
 section.banner button:hover {
   background-color: #017632;
 }
+
+/* === Informações === */
+
+section.informacoes{
+  border-top: 1px solid #3a8d87;
+  border-bottom: 1px solid #3a8d87;
+  padding: 20px 0;
+}
+
+section.informacoes div.conteudoInformacoes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+  flex: 1;
+}
+
+section.informacoes div.conteudoInformacoes p.paragrafo1, p.paragrafo2 {
+  color: #8b8b8b;
+  font-size: 40px;
+}
+
+div.conteudoInformacoes div.divC{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   gap: 15px;
+}
+
+div.conteudoInformacoes div.divE{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+div.conteudoInformacoes div.divL{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
 
 </style>
