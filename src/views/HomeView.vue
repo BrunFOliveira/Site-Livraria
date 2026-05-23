@@ -1,6 +1,9 @@
 <script setup>
  import { ref } from 'vue';
  import { RouterLink } from 'vue-router';
+ import ProductList from '@/components/products/ProductList.vue';
+
+
 
  const urlImage = ref('https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg');
 
@@ -46,9 +49,12 @@
       <img src="/public/IconLivro.png" alt="">
     <p>Mais vendidos</p>
     </div>
+
     </div>
 
    </section>
+
+  <ProductList />
 
   </main>
 </template>
