@@ -3,10 +3,7 @@
  import { RouterLink } from 'vue-router';
  import ProductList from '@/components/products/ProductList.vue';
 
-
-
- const urlImage = ref('https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg');
-
+const urlImage = ref('https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg')
 </script>
 
 <template>
@@ -60,7 +57,6 @@
 </template>
 
 <style scoped>
-
 /* === Banner === */
 
 section.banner {
@@ -73,7 +69,7 @@ section.banner {
 
 section.banner span.livroDestaque {
   border: 1px solid #a2d2c8;
-  color: #27AE60;
+  color: #27ae60;
   padding: 6px 12px;
   font-size: 12px;
   border-radius: 3px;
@@ -97,7 +93,7 @@ section.banner p {
 
 section.banner button {
   color: #fff;
-  background-color: #27AE60;
+  background-color: #27ae60;
   padding: 12px 40px;
   font-size: 12px;
   border-radius: 3px;
@@ -109,7 +105,7 @@ section.banner button:hover {
 
 /* === Informações === */
 
-section.informacoes{
+section.informacoes {
   border-top: 1px solid #3a8d87;
   border-bottom: 1px solid #3a8d87;
   padding: 20px 0;
@@ -125,31 +121,30 @@ section.informacoes div.conteudoInformacoes {
   flex: 1;
 }
 
-section.informacoes div.conteudoInformacoes p.paragrafo1, p.paragrafo2 {
+section.informacoes div.conteudoInformacoes p.paragrafo1,
+p.paragrafo2 {
   color: #8b8b8b;
   font-size: 40px;
 }
 
-div.conteudoInformacoes div.divC{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-   gap: 15px;
-}
-
-div.conteudoInformacoes div.divE{
+div.conteudoInformacoes div.divC {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
 
-div.conteudoInformacoes div.divL{
+div.conteudoInformacoes div.divE {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
 
-
+div.conteudoInformacoes div.divL {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
 </style>
