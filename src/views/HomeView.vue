@@ -1,60 +1,58 @@
 <script setup>
- import { ref } from 'vue';
- import { RouterLink } from 'vue-router';
+import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
- const urlImage = ref('https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg');
-
+const urlImage = ref('https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg')
 </script>
 
 <template>
   <main>
+    <section class="banner">
+      <div>
+        <span class="livroDestaque">Livro Destaque</span>
+        <h2 class="tituloDoLivro">Clean Code</h2>
+        <p>
+          Neste guia de engenharia de Robert C. Martin, conheça as boas práticas e os padrões de
+          arquitetura do desenvolvimento de software, com seus refatoramentos, padrões de projeto e
+          testes automatizados que sustentam sistemas robustos do mundo inteiro. Obra de referência
+          na indústria da tecnologia, Código Limpo apresenta um dos mais eficazes ecossistemas de
+          desenvolvimento e manutenção de código do século XXI.
+        </p>
+        <button>
+          <RouterLink to="/" class="botao-link"> Acessar página do livro </RouterLink>
+        </button>
+      </div>
+      <div>
+        <img :src="urlImage" alt="Capa do livro Clean Code" />
+      </div>
+    </section>
 
-   <section class="banner">
-    <div>
-       <span class="livroDestaque">Livro Destaque</span>
-    <h2 class="tituloDoLivro">Clean Code</h2>
-    <p>Neste guia de engenharia de Robert C. Martin, conheça as boas práticas e os padrões de arquitetura do desenvolvimento de software, com seus refatoramentos, padrões de projeto e testes automatizados que sustentam sistemas robustos do mundo inteiro. Obra de referência na indústria da tecnologia, Código Limpo apresenta um dos mais eficazes ecossistemas de desenvolvimento e manutenção de código do século XXI.</p>
-    <button>
-      <RouterLink to="/" class="botao-link">
-  Acessar página do livro
-      </RouterLink>
-    </button>
-    </div>
-    <div>
-      <img :src="urlImage" alt="Capa do livro Clean Code">
-    </div>
-   </section>
+    <section class="informacoes">
+      <div class="conteudoInformacoes">
+        <div class="divC">
+          <img src="/public/IconCaminhão.png" alt="" />
+          <p>Frete grátis para SC</p>
+        </div>
 
-   <section class="informacoes">
+        <p class="paragrafo1">|</p>
 
-    <div class="conteudoInformacoes">
-      <div class="divC">
-      <img src="/public/IconCaminhão.png" alt="">
-    <p>Frete grátis para SC</p>
-    </div>
+        <div class="divE">
+          <img src="/public/IconEstrela.png" alt="" />
+          <p>Livros recomendados</p>
+        </div>
 
-    <p class="paragrafo1">|</p>
+        <p class="paragrafo2">|</p>
 
-    <div class="divE">
-      <img src="/public/IconEstrela.png" alt="">
-    <p>Livros recomendados</p>
-    </div>
-
-    <p class="paragrafo2">|</p>
-
-    <div class="divL">
-      <img src="/public/IconLivro.png" alt="">
-    <p>Mais vendidos</p>
-    </div>
-    </div>
-
-   </section>
-
+        <div class="divL">
+          <img src="/public/IconLivro.png" alt="" />
+          <p>Mais vendidos</p>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
 <style scoped>
-
 /* === Banner === */
 
 section.banner {
@@ -67,7 +65,7 @@ section.banner {
 
 section.banner span.livroDestaque {
   border: 1px solid #a2d2c8;
-  color: #27AE60;
+  color: #27ae60;
   padding: 6px 12px;
   font-size: 12px;
   border-radius: 3px;
@@ -91,7 +89,7 @@ section.banner p {
 
 section.banner button {
   color: #fff;
-  background-color: #27AE60;
+  background-color: #27ae60;
   padding: 12px 40px;
   font-size: 12px;
   border-radius: 3px;
@@ -103,7 +101,7 @@ section.banner button:hover {
 
 /* === Informações === */
 
-section.informacoes{
+section.informacoes {
   border-top: 1px solid #3a8d87;
   border-bottom: 1px solid #3a8d87;
   padding: 20px 0;
@@ -119,31 +117,30 @@ section.informacoes div.conteudoInformacoes {
   flex: 1;
 }
 
-section.informacoes div.conteudoInformacoes p.paragrafo1, p.paragrafo2 {
+section.informacoes div.conteudoInformacoes p.paragrafo1,
+p.paragrafo2 {
   color: #8b8b8b;
   font-size: 40px;
 }
 
-div.conteudoInformacoes div.divC{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-   gap: 15px;
-}
-
-div.conteudoInformacoes div.divE{
+div.conteudoInformacoes div.divC {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
 
-div.conteudoInformacoes div.divL{
+div.conteudoInformacoes div.divE {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
 
-
+div.conteudoInformacoes div.divL {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
 </style>
