@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
-
+import {wishlistCount} from '@/data/favorite'
 const toast = useToast()
 
 const searchQuery = ref('')
 const cartCount = ref(0)
-const wishlistCount = ref(3)
+const count = wishlistCount
 
 const handleClick = (page) => {
   toast.error(`Página "${page}" em desenvolvimento!`, {
@@ -65,8 +65,8 @@ const handleClick = (page) => {
         <span class="text-gray-300 text-lg select-none">|</span>
         <a href="#" @click.prevent="handleClick('Favoritos')" class="relative p-2 text-(--cor_base_verde) hover:text-(--cor_base_verde) transition-colors cursor-pointer">
           <img src="/heart.png" alt="Favoritos" class="w-6 h-6" />
-          <span v-if="wishlistCount > 0" class="absolute -top-0.5 -right-0.5 bg-(--cor_base_verde) text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
-            {{ wishlistCount }}
+          <span v-if="count > 0" class="absolute -top-0.5 -right-0.5 bg-(--cor_base_verde) text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+            {{ count }}
           </span>
         </a>
         <span class="text-gray-300 text-lg select-none">|</span>
