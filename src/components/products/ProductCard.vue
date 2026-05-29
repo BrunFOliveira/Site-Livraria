@@ -1,26 +1,24 @@
 <script setup>
-
-import ButtonChildComprar from './ButtonChildComprar.vue';
-import ButtonChildFavoritar from './ButtonChildFavoritar.vue';
+import ButtonChildComprar from './ButtonChildComprar.vue'
+import ButtonChildFavoritar from './ButtonChildFavoritar.vue'
 
 defineProps(['produto'])
-
 </script>
 
 <template>
   <div class="card-livro">
     <div class="caixa-imagem">
-       <img :src="produto.capa" alt="produto.titulo" class="imagem-capa" />
+      <img :src="produto.capa" alt="produto.titulo" class="imagem-capa" />
     </div>
 
-  <h3 class="titulo-livro">{{ produto.titulo }}</h3>
-  <p class="autor-livro">{{ produto.autor }}</p>
+    <h3 class="titulo-livro">{{ produto.titulo }}</h3>
+    <p class="autor-livro">{{ produto.autor }}</p>
 
-   <div class="linha-preco">
+    <div class="linha-preco">
       <span class="preco-livro">R$ {{ produto.preco.toFixed(2) }}</span>
       <ButtonChildFavoritar />
-  </div>
-  <ButtonChildComprar />
+    </div>
+    <ButtonChildComprar />
   </div>
 </template>
 
@@ -80,5 +78,4 @@ defineProps(['produto'])
   border: none;
   cursor: pointer;
 }
-
 </style>
