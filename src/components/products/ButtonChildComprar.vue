@@ -4,7 +4,7 @@
 
 <template>
   <button @click.prevent="$emit('clique')" class="btn">
-    <img src="/public/IconCarrinhoDeCompras.png" alt="">
+    <img src="/IconCarrinhoDeCompras.png" alt="">
     Comprar
   </button>
 </template>
