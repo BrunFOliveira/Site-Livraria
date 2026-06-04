@@ -1,10 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import { animate } from 'motion-v'
-import { toggleWishlist } from '@/data/favorite'
 
-const favoritar = ref(false)
-const btnRef = ref(null)
+const favoritar = ref(false);
 
 function handleClick() {
   favoritar.value = !favoritar.value
@@ -14,6 +11,7 @@ function handleClick() {
 </script>
 
 <template>
+
   <button
     ref="btnRef"
     @click="handleClick"
