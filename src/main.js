@@ -6,9 +6,11 @@ import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 
 const app = createApp(App)
+
 app.use(router)
+app.mount('#app')
+
 app.use(Toast, {
   timeout: 2000,
   toastClassName: "glass-toast",
 })
-app.mount('#app')
