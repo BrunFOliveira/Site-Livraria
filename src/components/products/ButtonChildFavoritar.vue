@@ -24,7 +24,7 @@ function handleClick() {
   <button
     ref="btnRef"
     @click="handleClick"
-    class="bg-transparent border-none p-2 leading-none cursor-pointer active:scale-90 active:transition-transform active:duration-100 outline-none focus-visible:outline-none"
+    class="bg-transparent border-none p-2 md:p-2.5 leading-none cursor-pointer active:scale-90 active:transition-transform active:duration-100 outline-none focus-visible:outline-none"
   >
     <motion.svg
       :animate="{
@@ -37,7 +37,7 @@ function handleClick() {
       }"
       viewBox="0 0 24 24"
       :class="[
-        'w-6 h-6 stroke-2',
+        'w-5 h-5 md:w-6 md:h-6 stroke-2',
         favoritar
           ? 'fill-(--cor_base_verde) stroke-(--cor_base_verde)'
           : 'fill-transparent stroke-gray-400'

@@ -40,7 +40,8 @@ defineProps(['produto'])
 .card-livro {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1 1 240px;
+  max-width: 320px;
 }
 
 .imagem-capa {
@@ -62,6 +63,20 @@ defineProps(['produto'])
   font-size: 13px;
   color: #777;
   margin-bottom: 15px;
+}
+
+@media (max-width: 480px) {
+  .caixa-imagem {
+    height: 200px;
+  }
+
+  .titulo-livro {
+    font-size: 14px;
+  }
+
+  .autor-livro {
+    font-size: 12px;
+  }
 }
 .linha-preco {
   display: flex;
