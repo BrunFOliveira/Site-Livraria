@@ -30,8 +30,9 @@ import ProductCard from './ProductCard.vue';
 }
 
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 45px;
   max-width: 1200px;
   margin: 10px auto;
