@@ -4,7 +4,7 @@ import { animate } from 'motion-v'
 import { motion } from 'motion-v'
 import { toggleWishlist } from '@/data/favorite'
 
-const favoritar = ref(false)
+const favoritar = ref(false);
 const btnRef = ref(null)
 const state = ref(false)
 
@@ -20,6 +20,7 @@ function handleClick() {
 </script>
 
 <template>
+
   <button
     ref="btnRef"
     @click="handleClick"
