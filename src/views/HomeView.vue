@@ -97,10 +97,16 @@ section.banner button {
   padding: 12px 40px;
   font-size: 12px;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 section.banner button:hover {
   background-color: #017632;
+}
+
+section.banner img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* === Informações === */
@@ -146,5 +152,89 @@ div.conteudoInformacoes div.divL {
   justify-content: space-between;
   align-items: center;
   gap: 15px;
+}
+
+/* === Responsivo === */
+
+@media (max-width: 1024px) {
+  section.banner {
+    margin: 50px 40px;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  section.banner {
+    flex-direction: column;
+    text-align: center;
+    margin: 40px 24px;
+    gap: 24px;
+  }
+
+  section.banner h2.tituloDoLivro {
+    font-size: 1.8rem;
+    margin-top: 20px;
+  }
+
+  section.banner p {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  section.banner button {
+    padding: 10px 32px;
+  }
+
+  section.informacoes div.conteudoInformacoes {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 16px;
+  }
+
+  section.informacoes div.conteudoInformacoes p.paragrafo1,
+  p.paragrafo2 {
+    display: none;
+  }
+
+  div.conteudoInformacoes div.divC,
+  div.conteudoInformacoes div.divE,
+  div.conteudoInformacoes div.divL {
+    justify-content: center;
+    width: 100%;
+  }
+
+  section.banner img {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  section.banner {
+    margin: 24px 12px;
+    gap: 16px;
+  }
+
+  section.banner h2.tituloDoLivro {
+    font-size: 1.4rem;
+    margin-top: 16px;
+  }
+
+  section.banner p {
+    font-size: 13px;
+  }
+
+  section.banner button {
+    padding: 8px 24px;
+    font-size: 11px;
+  }
+
+  section.banner img {
+    max-width: 200px;
+  }
+
+  section.informacoes div.conteudoInformacoes {
+    gap: 12px;
+    padding: 16px 12px;
+  }
 }
 </style>
