@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
+import { wishlistCount } from '@/data/favorite'
 
 const toast = useToast()
 
 const searchQuery = ref('')
 const cartCount = ref(0)
-const wishlistCount = ref(3)
 
 const handleClick = (page) => {
   toast.error(`Página "${page}" em desenvolvimento!`, {

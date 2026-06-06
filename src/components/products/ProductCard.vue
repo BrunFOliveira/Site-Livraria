@@ -27,15 +27,14 @@ defineProps(['produto'])
 <style scoped>
 .caixa-imagem {
   background-color: #f7f7f7;
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 280px;
   width: 100%;
-  box-sizing: border-box;
   margin-bottom: 15px;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .card-livro {
@@ -45,9 +44,9 @@ defineProps(['produto'])
 }
 
 .imagem-capa {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .titulo-livro {
   font-size: 16px;
