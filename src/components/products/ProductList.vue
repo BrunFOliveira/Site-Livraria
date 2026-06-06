@@ -31,11 +31,42 @@ import ProductCard from './ProductCard.vue';
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 45px;
   max-width: 1200px;
   margin: 10px auto;
   padding: 20px;
 }
 
+@media (max-width: 768px) {
+  .Secao-lancamentos {
+    padding: 0 20px;
+    margin: 30px auto;
+  }
+
+  .titulo-lancamento {
+    font-size: 28px;
+  }
+
+  .product-grid {
+    gap: 30px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Secao-lancamentos {
+    padding: 0 12px;
+    margin: 20px auto;
+  }
+
+  .titulo-lancamento {
+    font-size: 22px;
+  }
+
+  .product-grid {
+    gap: 20px;
+    padding: 5px;
+  }
+}
 </style>

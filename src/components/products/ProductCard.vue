@@ -63,6 +63,20 @@ defineProps(['produto'])
   color: #777;
   margin-bottom: 15px;
 }
+
+@media (max-width: 480px) {
+  .caixa-imagem {
+    height: 200px;
+  }
+
+  .titulo-livro {
+    font-size: 14px;
+  }
+
+  .autor-livro {
+    font-size: 12px;
+  }
+}
 .linha-preco {
   display: flex;
   justify-content: space-between;
