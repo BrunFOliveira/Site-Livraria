@@ -26,11 +26,21 @@ h2{
   font-weight: bold;
 }
 section.tituloCartView {
-  margin-top: 13vw;
+  margin-top: 2rem;
   margin-left: 10vw;
   margin-bottom: 3vw;
 }
 
+@media (max-width: 640px) {
+  h2 {
+    font-size: 26px;
+  }
 
+  section.tituloCartView {
+    margin-top: 8vw;
+    margin-left: 5vw;
+    margin-bottom: 5vw;
+  }
+}
 
 </style>

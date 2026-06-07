@@ -29,21 +29,21 @@ const urlImage = ref('https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg'
 
     <div class="conteudoInformacoes">
       <div class="divC">
-      <img src="/public/IconCaminhão.png" alt="">
+      <img src="/IconCaminhão.png" alt="">
     <p>Frete grátis para SC</p>
     </div>
 
     <p class="paragrafo1">|</p>
 
     <div class="divE">
-      <img src="/public/IconEstrela.png" alt="">
+      <img src="/IconEstrela.png" alt="">
     <p>Livros recomendados</p>
     </div>
 
     <p class="paragrafo2">|</p>
 
     <div class="divL">
-      <img src="/public/IconLivro.png" alt="">
+      <img src="/IconLivro.png" alt="">
     <p>Mais vendidos</p>
     </div>
 
