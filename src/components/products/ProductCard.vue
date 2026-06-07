@@ -2,8 +2,31 @@
 
 import ButtonChildComprar from './ButtonChildComprar.vue';
 import ButtonChildFavoritar from './ButtonChildFavoritar.vue';
+import carrinho from '@/utils/cartUtils.js';
 
-defineProps(['produto'])
+const props = defineProps(['produto']);
+
+function comprar() {
+
+  const itemExist = carrinho.items.find(p => p.id === props.produto.id);
+
+    if (itemExist) {
+      itemExist.quantidade++;
+      itemExist.valorTotal = itemExist.quantidade * itemExist.preco;
+    } else {
+    carrinho.items.push({
+      id: props.produto.id,
+      nome: props.produto.titulo,
+      preco: props.produto.preco,
+      quantidade: 1,
+      capa: props.produto.capa,
+      valorTotal: props.produto.preco,
+      autor: props.produto.autor
+    });
+  }
+  carrinho.total = carrinho.items.reduce((soma, item) => soma + item.valorTotal, 0);
+
+}
 
 </script>
 
@@ -20,7 +43,7 @@ defineProps(['produto'])
       <span class="preco-livro">R$ {{ produto.preco.toFixed(2) }}</span>
       <ButtonChildFavoritar />
   </div>
-  <ButtonChildComprar />
+  <ButtonChildComprar @clique="comprar"/>
   </div>
 </template>
 
