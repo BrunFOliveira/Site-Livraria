@@ -1,19 +1,20 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { animate } from 'motion-v'
 import { motion } from 'motion-v'
-import { toggleWishlist } from '@/data/favorite'
+import { toggleWishlist, isFavorited } from '@/data/favorite'
 
-const favoritar = ref(false);
+const props = defineProps(['produto'])
 const btnRef = ref(null)
 const state = ref(false)
 
+const favoritar = computed(() => isFavorited(props.produto.id))
+
 function handleClick() {
-  favoritar.value = !favoritar.value
+  toggleWishlist(props.produto)
   state.value = true
-  toggleWishlist(favoritar.value)
   animate(btnRef.value, { scale: [1, 1.3, 1] }, { duration: 0.4, ease: 'easeInOut' })
-  setTimeout(()=>{
+  setTimeout(() => {
     state.value = false
   }, 400)
 }

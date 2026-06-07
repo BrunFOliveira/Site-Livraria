@@ -1,17 +1,22 @@
 <script setup>
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
-import { wishlistCount } from '@/data/favorite'
+import { wishlist, wishlistCount } from '@/data/favorite'
 
 const toast = useToast()
 
 const searchQuery = ref('')
 const cartCount = ref(0)
+const showWishlist = ref(false)
 
 const handleClick = (page) => {
   toast.error(`Página "${page}" em desenvolvimento!`, {
     id: `error-${page}`,
   })
+}
+
+function toggleWishlistMenu() {
+  showWishlist.value = !showWishlist.value
 }
 </script>
 
@@ -41,7 +46,9 @@ const handleClick = (page) => {
         </button>
       </div>
 
-      <nav class="hidden md:flex items-center gap-7 ml-auto">
+      <div class="flex-1"></div>
+
+      <nav class="hidden md:flex items-center gap-7">
         <a href="#" @click.prevent="handleClick('Termos')" class="text-sm text-gray-700 hover:text-(--cor_base_verde) transition-colors whitespace-nowrap cursor-pointer">
           Termos
         </a>
@@ -63,12 +70,34 @@ const handleClick = (page) => {
           </span>
         </RouterLink>
         <span class="text-gray-300 text-base md:text-lg select-none">|</span>
-        <a href="#" @click.prevent="handleClick('Favoritos')" class="relative p-1.5 md:p-2 text-(--cor_base_verde) hover:text-(--cor_base_verde) transition-colors cursor-pointer">
-          <img src="/heart.png" alt="Favoritos" class="w-5 h-5 md:w-6 md:h-6" />
-          <span v-if="wishlistCount > 0" class="absolute -top-0.5 -right-0.5 bg-(--cor_base_verde) text-white text-[10px] md:text-xs rounded-full w-3.5 h-3.5 md:w-4 md:h-4 flex items-center justify-center">
-            {{ wishlistCount }}
-          </span>
-        </a>
+
+        <div class="relative">
+          <a href="#" @click.prevent="toggleWishlistMenu" class="relative inline-flex p-1.5 md:p-2 text-(--cor_base_verde) hover:text-(--cor_base_verde) transition-colors cursor-pointer">
+            <img src="/heart.png" alt="Favoritos" class="w-5 h-5 md:w-6 md:h-6" />
+            <span v-if="wishlistCount > 0" class="absolute -top-1 -right-1 bg-(--cor_base_verde) text-white text-[10px] md:text-xs rounded-full min-w-4.5 h-4.5 md:min-w-5 md:h-5 flex items-center justify-center px-1 leading-none font-bold shadow-sm">
+              {{ wishlistCount }}
+            </span>
+          </a>
+
+          <Transition name="dropdown">
+            <div v-if="showWishlist" class="dropdown-wishlist">
+              <p v-if="wishlist.length === 0" class="dropdown-vazio">
+                favorite algo pão duro
+              </p>
+              <div v-else class="dropdown-lista">
+                <div
+                  v-for="item in wishlist"
+                  :key="item.id"
+                  class="dropdown-item"
+                >
+                  <img :src="item.capa" :alt="item.titulo" class="dropdown-capa" />
+                  <span class="dropdown-nome">{{ item.titulo }}</span>
+                </div>
+              </div>
+            </div>
+          </Transition>
+        </div>
+
         <span class="text-gray-300 text-base md:text-lg select-none">|</span>
         <a href="#" @click.prevent="handleClick('Perfil')" class="p-1.5 md:p-2 text-(--cor_base_verde) hover:text-(--cor_base_verde) transition-colors cursor-pointer">
           <img src="/user.png" alt="Perfil" class="w-5 h-5 md:w-6 md:h-6" />
@@ -81,5 +110,79 @@ const handleClick = (page) => {
 <style scoped>
 header {
   font-family: 'Segoe UI', sans-serif;
+}
+
+.dropdown-wishlist {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 260px;
+  max-width: 320px;
+  max-height: 280px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+}
+
+.dropdown-vazio {
+  padding: 24px 20px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.dropdown-lista {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.15s;
+  cursor: default;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: #f9fafb;
+}
+
+.dropdown-capa {
+  width: 36px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.dropdown-nome {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.2s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 </style>

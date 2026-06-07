@@ -1,21 +1,24 @@
 <script setup>
 import { ref } from 'vue';
 import carrinho from '@/utils/cartUtils.js';
+import { formatPrice, formatPriceWithDiscount } from '@/utils/currencyUtils.js';
+import { useToast } from 'vue-toastification';
 
 const CodigoCupom = ref('');
-const mensagem = ref('');
 const vezesUsadoCupom = ref(0);
+const toast = useToast();
 
 function aplicarCupom() {
   if (CodigoCupom.value.toUpperCase() === 'VOUPROGRAMAR' && vezesUsadoCupom.value === 0) {
     carrinho.desconto = 10;
     vezesUsadoCupom.value = 1;
-    mensagem.value = 'Cupom aplicado com sucesso!';
+    toast.success('🎉 Cupom aplicado com sucesso!');
+    CodigoCupom.value = '';
 
   } else if (CodigoCupom.value.toUpperCase() !== 'VOUPROGRAMAR' && vezesUsadoCupom.value === 0) {
-    mensagem.value = 'Cupom inválido!';
+    toast.error('✖ Cupom inválido!');
   } else {
-    mensagem.value = 'Você já usou esse cupom!'
+    toast.warning('⚠ Você já usou esse cupom!');
   }
 }
 </script>
@@ -28,9 +31,6 @@ function aplicarCupom() {
       <button @click="aplicarCupom" class="inserirCupom">Inserir Cupom</button>
     </div>
 
-    <p v-if="mensagem !== ''" class="aviso">
-      {{ mensagem }}
-    </p>
     </div>
 
     <div class="divExterna">
@@ -38,7 +38,7 @@ function aplicarCupom() {
       <div class="divInterna">
         <div class="primeiraDiv">
           <span>Produtos:</span>
-          <p>R${{ carrinho.total.toFixed(2) }}</p>
+          <p>{{ formatPrice(carrinho.total) }}</p>
 
         </div>
         <div class="segundaDiv">
@@ -48,12 +48,12 @@ function aplicarCupom() {
         </div>
         <div class="terceiraDiv">
           <span>Desconto:</span>
-          <p>R${{ carrinho.desconto.toFixed(2) }}</p>
+          <p>{{ formatPrice(carrinho.desconto) }}</p>
 
         </div>
         <div>
           <span>Total:</span>
-          <p>R${{ Math.max(0, carrinho.total - carrinho.desconto).toFixed(2) }}</p>
+          <p>{{ formatPriceWithDiscount(carrinho.total, carrinho.desconto) }}</p>
 
         </div>
       </div>
@@ -68,18 +68,15 @@ section.summaryCart {
   margin: 35px 10vw 35px 9vw;
   display: flex;
   justify-content: space-between;
-}
-section.summaryCart div p.aviso {
-  margin-top: 10px;
-  margin-left: 10px;
-  font-size: 0.9rem;
-  font-weight: bold;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 div.divExterna div.divInterna div{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 23vw;
+  gap: 15vw;
+  min-width: 200px;
 }
 div.elementosLaterais button.inserirCupom{
   cursor: pointer;
@@ -87,21 +84,27 @@ div.elementosLaterais button.inserirCupom{
   color: #fff;
   padding: 15px 50px;
   border-radius: 4px;
+  white-space: nowrap;
 }
 div.elementosLaterais input {
   padding: 15px 50px 15px 15px;
-  margin-left: 10px;
   border: 1px solid #000;
   border-radius: 4px;
+  width: 100%;
+  min-width: 120px;
 }
 div.elementosLaterais {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 div.divExterna {
   border: 2px solid #000;
   border-radius: 4px;
   padding: 30px 40px;
+  flex: 1;
+  min-width: 280px;
   }
 div.divExterna h3{
   margin: 0 0 20px 0;
@@ -136,5 +139,38 @@ div.divExterna div.divInterna div.segundaDiv {
 div.divExterna div.divInterna div.terceiraDiv {
   border-bottom: 1px solid #8c8c8c;
   padding-bottom: 1vw;
+}
+
+@media (max-width: 640px) {
+  section.summaryCart {
+    margin: 20px 5vw;
+    flex-direction: column;
+  }
+
+  div.divExterna div.divInterna div {
+    gap: 10vw;
+    min-width: auto;
+  }
+
+  div.elementosLaterais input {
+    min-width: 90px;
+    padding: 12px 30px 12px 12px;
+  }
+
+  div.elementosLaterais button.inserirCupom {
+    padding: 12px 30px;
+    font-size: 13px;
+  }
+
+  div.divExterna {
+    padding: 20px;
+    min-width: auto;
+  }
+
+  .btnPagamento {
+    margin: 0;
+    width: 100%;
+    padding: 12px 20px;
+  }
 }
 </style>

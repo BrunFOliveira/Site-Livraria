@@ -1,8 +1,10 @@
 <script setup>
 
+import { useToast } from 'vue-toastification'
 import ButtonChildComprar from './ButtonChildComprar.vue';
 import ButtonChildFavoritar from './ButtonChildFavoritar.vue';
 import carrinho from '@/utils/cartUtils.js';
+import { formatPrice } from '@/utils/currencyUtils.js';
 
 const props = defineProps(['produto']);
 
@@ -28,6 +30,10 @@ function comprar() {
 
 }
 
+const toast = useToast()
+function handleClick() {
+  toast.success('Livro adicionado ao carrinho!')
+}
 </script>
 
 <template>
@@ -40,10 +46,10 @@ function comprar() {
   <p class="autor-livro">{{ produto.autor }}</p>
 
    <div class="linha-preco">
-      <span class="preco-livro">R$ {{ produto.preco.toFixed(2) }}</span>
-      <ButtonChildFavoritar />
+      <span class="preco-livro">{{ formatPrice(produto.preco) }}</span>
+      <ButtonChildFavoritar :produto="produto" />
   </div>
-  <ButtonChildComprar @clique="comprar"/>
+  <ButtonChildComprar @clique="comprar" @click="handleClick"/>
   </div>
 </template>
 
@@ -65,6 +71,7 @@ function comprar() {
   flex-direction: column;
   flex: 1 1 240px;
   max-width: 320px;
+  min-width: 180px;
 }
 
 .imagem-capa {

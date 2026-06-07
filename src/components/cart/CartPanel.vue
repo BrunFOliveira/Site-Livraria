@@ -89,5 +89,23 @@ button.btnVoltarLoja {
   font-weight: 500;
 }
 
+@media (max-width: 640px) {
+  section.painelDoCart {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  div.topoDoPainel {
+    font-size: 1rem;
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  button.btnVoltarLoja {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    text-align: center;
+  }
+}
 
 </style>
