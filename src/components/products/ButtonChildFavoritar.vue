@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from 'vue'
+import { toggleWishlist } from '@/data/favorite';
 
 const favoritar = ref(false);
 
 function handleClick() {
-  favoritar.value = !favoritar.value
-  toggleWishlist(favoritar.value)
+  favoritar.value = !favoritar.value;
+  toggleWishlist(favoritar.value);
   animate(btnRef.value, { scale: [1, 1.3, 1] }, { duration: 0.4, ease: 'easeInOut' })
 }
 </script>
