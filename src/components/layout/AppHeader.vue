@@ -27,7 +27,7 @@ const handleClick = (page) => {
         </span>
       </RouterLink>
 
-      <div class="flex items-center border border-gray-300 rounded-md overflow-hidden flex-1 max-w-[140px] sm:max-w-[200px] md:max-w-sm">
+      <div class="flex items-center border border-gray-300 rounded-md overflow-hidden flex-1 max-w-35 sm:max-w-50 md:max-w-sm">
         <input
           v-model="searchQuery"
           type="text"
