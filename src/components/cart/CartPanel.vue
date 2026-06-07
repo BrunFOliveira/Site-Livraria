@@ -88,6 +88,14 @@ button.btnVoltarLoja {
   cursor: pointer;
   font-weight: 500;
 }
+div.carrinhoVazio p{
+  color: #27ae60;
+  font-weight: bolder;
+  margin: 30px auto 50px auto;
+  text-align: center;
+  text-decoration: underline;
+  cursor: default;
+}
 
 @media (max-width: 640px) {
   section.painelDoCart {
