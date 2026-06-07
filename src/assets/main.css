@@ -2,7 +2,6 @@
 
 /* Toast glassmorphism */
 .glass-toast {
-  background: rgb(90, 0, 0) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
@@ -23,6 +22,7 @@
 }
 
 .glass-toast--success {
+  background: rgba(39, 174, 96, 0.88) !important;
   border-color: rgba(74, 222, 128, 0.3) !important;
   box-shadow:
     0 8px 32px rgba(74, 222, 128, 0.15),
@@ -30,6 +30,7 @@
 }
 
 .glass-toast--error {
+  background: rgba(220, 38, 38, 0.88) !important;
   border-color: rgba(248, 113, 113, 0.944) !important;
   box-shadow:
     0 8px 32px rgba(248, 113, 113, 0.15),
@@ -37,6 +38,7 @@
 }
 
 .glass-toast--warning {
+  background: rgba(217, 119, 6, 0.88) !important;
   border-color: rgba(250, 204, 21, 0.3) !important;
   box-shadow:
     0 8px 32px rgba(250, 204, 21, 0.15),
@@ -44,6 +46,7 @@
 }
 
 .glass-toast--info {
+  background: rgba(37, 99, 235, 0.88) !important;
   border-color: rgba(96, 165, 250, 0.3) !important;
   box-shadow:
     0 8px 32px rgba(96, 165, 250, 0.15),
