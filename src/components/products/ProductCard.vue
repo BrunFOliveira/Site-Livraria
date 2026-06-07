@@ -50,27 +50,27 @@ function comprar() {
 <style scoped>
 .caixa-imagem {
   background-color: #f7f7f7;
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 280px;
   width: 100%;
-  box-sizing: border-box;
   margin-bottom: 15px;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .card-livro {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1 1 240px;
+  max-width: 320px;
 }
 
 .imagem-capa {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .titulo-livro {
   font-size: 16px;
@@ -86,6 +86,20 @@ function comprar() {
   font-size: 13px;
   color: #777;
   margin-bottom: 15px;
+}
+
+@media (max-width: 480px) {
+  .caixa-imagem {
+    height: 200px;
+  }
+
+  .titulo-livro {
+    font-size: 14px;
+  }
+
+  .autor-livro {
+    font-size: 12px;
+  }
 }
 .linha-preco {
   display: flex;
