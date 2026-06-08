@@ -33,7 +33,10 @@ import ProductCard from './ProductCard.vue'
 
 .product-grid {
   display: grid;
-  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 45px;
   max-width: 1200px;
   grid-template-columns: repeat(4, minmax(220px, 1fr));
   gap: 45px;
