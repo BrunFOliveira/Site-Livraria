@@ -1,58 +1,57 @@
 <script setup>
- import { ref } from 'vue';
- import { RouterLink } from 'vue-router';
- import ProductList from '@/components/products/ProductList.vue';
+import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
+import ProductList from '@/components/products/ProductList.vue'
 
 const urlImage = ref('https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg')
 </script>
 
 <template>
   <main>
+    <section class="banner">
+      <div>
+        <span class="livroDestaque">Livro Destaque</span>
+        <h2 class="tituloDoLivro">Clean Code</h2>
+        <p>
+          Neste guia de engenharia de Robert C. Martin, conheça as boas práticas e os padrões de
+          arquitetura do desenvolvimento de software, com seus refatoramentos, padrões de projeto e
+          testes automatizados que sustentam sistemas robustos do mundo inteiro. Obra de referência
+          na indústria da tecnologia, Código Limpo apresenta um dos mais eficazes ecossistemas de
+          desenvolvimento e manutenção de código do século XXI.
+        </p>
+        <button>
+          <RouterLink to="/" class="botao-link"> Acessar página do livro </RouterLink>
+        </button>
+      </div>
+      <div>
+        <img :src="urlImage" alt="Capa do livro Clean Code" />
+      </div>
+    </section>
 
-   <section class="banner">
-    <div>
-       <span class="livroDestaque">Livro Destaque</span>
-    <h2 class="tituloDoLivro">Clean Code</h2>
-    <p>Neste guia de engenharia de Robert C. Martin, conheça as boas práticas e os padrões de arquitetura do desenvolvimento de software, com seus refatoramentos, padrões de projeto e testes automatizados que sustentam sistemas robustos do mundo inteiro. Obra de referência na indústria da tecnologia, Código Limpo apresenta um dos mais eficazes ecossistemas de desenvolvimento e manutenção de código do século XXI.</p>
-    <button>
-      <RouterLink to="/" class="botao-link">
-  Acessar página do livro
-      </RouterLink>
-    </button>
-    </div>
-    <div>
-      <img :src="urlImage" alt="Capa do livro Clean Code">
-    </div>
-   </section>
+    <section class="informacoes">
+      <div class="conteudoInformacoes">
+        <div class="divC">
+          <img src="/IconCaminhão.png" alt="" />
+          <p>Frete grátis para SC</p>
+        </div>
 
-   <section class="informacoes">
+        <p class="paragrafo1">|</p>
 
-    <div class="conteudoInformacoes">
-      <div class="divC">
-      <img src="/IconCaminhão.png" alt="">
-    <p>Frete grátis para SC</p>
-    </div>
+        <div class="divE">
+          <img src="/IconEstrela.png" alt="" />
+          <p>Livros recomendados</p>
+        </div>
 
-    <p class="paragrafo1">|</p>
+        <p class="paragrafo2">|</p>
 
-    <div class="divE">
-      <img src="/IconEstrela.png" alt="">
-    <p>Livros recomendados</p>
-    </div>
+        <div class="divL">
+          <img src="/IconLivro.png" alt="" />
+          <p>Mais vendidos</p>
+        </div>
+      </div>
+    </section>
 
-    <p class="paragrafo2">|</p>
-
-    <div class="divL">
-      <img src="/IconLivro.png" alt="">
-    <p>Mais vendidos</p>
-    </div>
-
-    </div>
-
-   </section>
-
-  <ProductList />
-
+    <ProductList />
   </main>
 </template>
 

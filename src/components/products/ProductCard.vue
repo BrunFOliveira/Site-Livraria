@@ -69,9 +69,7 @@ function handleClick() {
 .card-livro {
   display: flex;
   flex-direction: column;
-  flex: 1 1 240px;
-  max-width: 320px;
-  min-width: 180px;
+  width: 100%;
 }
 
 .imagem-capa {
