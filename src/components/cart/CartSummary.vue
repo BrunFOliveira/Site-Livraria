@@ -65,7 +65,7 @@ function aplicarCupom() {
 
 <style scoped>
 section.summaryCart {
-  margin: 35px 10vw 35px 9vw;
+  margin: 35px 10vw 35px 9.5vw;
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -85,6 +85,9 @@ div.elementosLaterais button.inserirCupom{
   padding: 15px 50px;
   border-radius: 4px;
   white-space: nowrap;
+}
+div.elementosLaterais button.inserirCupom:hover{
+  background-color: #017632;
 }
 div.elementosLaterais input {
   padding: 15px 50px 15px 15px;
@@ -123,7 +126,6 @@ div.divInterna {
   color: #fff;
   padding: 15px 50px;
   border-radius: 4px;
-  margin: 0 0 0 120px;
 }
 .btnPagamento:hover {
   background-color: #017632 ;
