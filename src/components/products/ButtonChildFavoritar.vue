@@ -9,7 +9,7 @@ const favoritar = computed(() => isFavorited(props.produto.id))
 
 function handleClick() {
   toggleWishlist(props.produto)
-
+  btnRef.value?.blur()
   state.value = true
 
   setTimeout(() => {
@@ -29,7 +29,7 @@ function handleClick() {
     <svg
       viewBox="0 0 24 24"
       :class="[
-        'w-5 h-5 md:w-6 md:h-6 stroke-2 transition-all duration-300 ease-in-out',
+        'w-5 h-5 md:w-6 md:h-6 stroke-2 transition-all duration-300 ease-in-out focus-visible:outline-none',
         state ? '-translate-y-2 scale-110' : 'translate-y-0 scale-100',
         favoritar
           ? 'fill-[var(--cor_base_verde)] stroke-[var(--cor_base_verde)]'
@@ -42,3 +42,17 @@ function handleClick() {
     </svg>
   </button>
 </template>
+
+<style scoped>
+button:focus,
+button:focus-visible,
+button:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+svg:focus,
+svg:focus-visible {
+  outline: none !important;
+}
+</style>
